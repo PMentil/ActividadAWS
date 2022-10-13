@@ -1,0 +1,36 @@
+Abrir y configurar sambox con la consola. En mi caso la de Ubuntu
+Desde lado de Sambox -> Star Lab -> Details-> AWS-> Show -> AWS CLi-> Show
+Desde consola
+    aws configure
+        copio y pedo la información que se me muestra en el pto 2
+        Como no me muetra la opción de incluir el token:
+    cd .aws
+        hago un nano sobre Credentials
+        Pego el token
+        guardo y cierro
+    ejecuto aws sts get-caller-identity
+
+Para Crear la instancia
+    1 - Selecciono EC2
+    2 - Creo el Security Group
+    3 - Para este ejercico en particular, y a diferencia de los que veníamos haciendo, 
+        cargo el puerto 3306
+    4 - Genero la Key Par
+    5 - Creo la Instancia de para la AMI de Ubuntu y Amazon
+        Aca sumo los scripts del UserData según corresponda (Ubuntu y Amazon Linux2)
+    6 - Chequeo que ambas queden en estado: 2/2 cheks passed
+    7 - Selecciono una de las dos instancia y selecciono connect
+        7.1 - Voy a la pestaña ssh
+               7.1.1 - Copio la opción de Example: ssh -i ".....
+               7.1.2 - En la consola me situo en la carpeta donde se descargó el .pem
+               7.1.3 - Le doy peremisos al .pem con chmod 400 
+               7.1.4 - Pego lo copiado en 7.1.1
+    8 - Chequear con el gestor que este levantada la BD
+        8.1 - DBeaver Community
+        8.2 - MySql Workbench
+
+    9 PARA CONOCIMIENTO DE LOS PROFESORES:
+        1 - Solo vinculé el el SSH de la instancia de Ubuntu a la concola. 
+        Esto es así, porque no sabía si tenía que volver a realizar, y como, toda la configuración para
+        poder pegar el SSH de la instancia de Amazon
+        2 - No supe como probar la conexión en ninguno de los dos gestores mencionados en el punto 8. Sobre todo non supe como crear el usuario y contraseña
